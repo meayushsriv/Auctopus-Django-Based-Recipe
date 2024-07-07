@@ -1,4 +1,3 @@
-// src/pages/SecondPage.tsx
 import React, { useEffect, useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import axios from "axios";
@@ -30,13 +29,7 @@ const SecondPage: React.FC = () => {
   return (
     <div>
       <div style={{ height: 400, width: "100%" }}>
-        <DataGrid
-          rows={data}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-        />
+        <DataGrid rows={data} columns={columns} checkboxSelection />
       </div>
       <DepartmentList />
     </div>

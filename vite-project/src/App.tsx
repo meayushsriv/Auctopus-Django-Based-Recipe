@@ -1,17 +1,25 @@
-// src/App.tsx
-import React from "react";
+import React, { useContext } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import FormPage from "./pages/FormPage";
 import SecondPage from "./pages/SecondPage";
+import { UserContext } from "./contexts/UserContext";
 
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
-  const user = localStorage.getItem("user");
-  return user ? children : <Navigate to="/" />;
+  const { user, setAlertMessage } = useContext(UserContext);
+  const location = useLocation();
+
+  if (!user) {
+    setAlertMessage("Please enter your details before accessing this page.");
+    return <Navigate to="/" state={{ from: location }} />;
+  }
+
+  return children;
 };
 
 const App: React.FC = () => {
