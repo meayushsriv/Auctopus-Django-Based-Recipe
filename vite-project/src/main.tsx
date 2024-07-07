@@ -5,8 +5,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { UserProvider } from "./contexts/UserContext";
 import "./index.css";
+import "./tailwind.css";
 
-// Create a MUI theme
 const theme = createTheme({
   palette: {
     primary: {

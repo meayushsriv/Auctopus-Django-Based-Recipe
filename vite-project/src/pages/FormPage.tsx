@@ -26,28 +26,45 @@ const FormPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <Typography variant="h4">User Information</Typography>
-      {alertMessage && <Alert severity="warning">{alertMessage}</Alert>}
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow-md space-y-6">
+      <Typography variant="h4" className="mb-4">
+        User Information
+      </Typography>
+      {alertMessage && (
+        <Alert severity="warning" className="mb-4">
+          {alertMessage}
+        </Alert>
+      )}
       <TextField
         label="Name"
+        type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         fullWidth
+        className="mb-4"
       />
       <TextField
         label="Phone"
+        type="number"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
         fullWidth
+        className="mb-4"
       />
       <TextField
         label="Email"
+        type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         fullWidth
+        className="mb-4"
       />
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleSubmit}
+        className="w-full"
+      >
         Submit
       </Button>
     </div>

@@ -43,10 +43,14 @@ const DepartmentList: React.FC = () => {
   };
 
   return (
-    <List>
+    <List className="w-full  mx-auto bg-white rounded shadow-lg">
       {departments.map((department) => (
         <React.Fragment key={department.name}>
-          <ListItem button onClick={() => handleToggle(department.name)}>
+          <ListItem
+            button
+            onClick={() => handleToggle(department.name)}
+            className="hover:bg-gray-100"
+          >
             <Checkbox
               edge="start"
               checked={
@@ -63,7 +67,11 @@ const DepartmentList: React.FC = () => {
           <Collapse in={open[department.name]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {department.subDepartments.map((subDepartment) => (
-                <ListItem key={subDepartment} button>
+                <ListItem
+                  key={subDepartment}
+                  button
+                  className="pl-12 hover:bg-gray-100"
+                >
                   <Checkbox
                     edge="start"
                     checked={checked[subDepartment]}

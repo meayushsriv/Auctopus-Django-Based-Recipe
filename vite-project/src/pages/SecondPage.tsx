@@ -27,8 +27,8 @@ const SecondPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <div style={{ height: 400, width: "100%" }}>
+    <div className="container mx-auto mt-10 p-6 bg-white rounded shadow-md space-y-6">
+      <div style={{ height: 400 }} className="mb-6">
         <DataGrid rows={data} columns={columns} checkboxSelection />
       </div>
       <DepartmentList />
